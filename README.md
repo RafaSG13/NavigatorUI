@@ -21,7 +21,7 @@ NavigatorUI is a Swift library designed to provide a robust and flexible navigat
 ## Getting Started
 1. Add NavigatorUI as a dependency in your `Package.swift`:
    ```swift
-   .package(url: "<repo-url>", from: "1.0.0")
+   .package(url: "https://github.com/RafaSG13/NavigatorUI.git", from: "1.0.0")
    ```
 2. Import the library in your SwiftUI project:
    ```swift
