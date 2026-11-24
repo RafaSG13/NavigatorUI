@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360" width="100%" role="img" aria-label="A deep link flows through four steps: the URL, the matching pattern, the navigation steps its handler returns, and the strategy that applies them; the result is a root stack with Home and a sheet containing Editor and Profile 42.">
+<title>A deep link flows through four steps: the URL, the matching pattern, the navigation steps its handler returns, and the strategy that applies them; the result is a root stack with Home and a sheet containing Editor and Profile 42.</title>
+<defs>
+<linearGradient id="brand" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f05138"/><stop offset="50%" stop-color="#d946ef"/><stop offset="100%" stop-color="#a855f7"/></linearGradient>
+<marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#8b949e"/></marker>
+<style>
+.frame  { fill: #ffffff; stroke: #d0d7de; stroke-width: 1.5; }
+.lane   { fill: #f6f8fa; stroke: #d0d7de; stroke-width: 1.5; }
+.screen { fill: #ffffff; stroke: #d0d7de; stroke-width: 1.5; }
+.api    { fill: #fff1ee; stroke: #f05138; stroke-width: 1.5; }
+.uikit  { fill: #f5efff; stroke: #a855f7; stroke-width: 1.5; }
+.shared { fill: #fdf0fd; stroke: #d946ef; stroke-width: 1.5; stroke-dasharray: 6 4; }
+.edge   { stroke: #8b949e; stroke-width: 1.5; fill: none; }
+.dashed { stroke-dasharray: 5 4; }
+.title  { font: 600 18px -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: #1f2328; }
+.label  { font: 600 14px -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: #1f2328; }
+.note   { font: 400 12.5px -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: #57606a; }
+.code   { font: 500 13px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; fill: #1f2328; }
+.badge  { fill: url(#brand); }
+.badge-text { font: 700 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: #ffffff; }
+@media (prefers-color-scheme: dark) {
+  .frame  { fill: #0d1117; stroke: #30363d; }
+  .lane   { fill: #161b22; stroke: #30363d; }
+  .screen { fill: #0d1117; stroke: #30363d; }
+  .api    { fill: #2a1410; }
+  .uikit  { fill: #1f1530; }
+  .shared { fill: #261229; }
+  .title, .label, .code { fill: #e6edf3; }
+  .note   { fill: #8b949e; }
+}
+</style>
+</defs>
+  <rect class="frame" x="1" y="1" width="998" height="358" rx="16"/>
+  <text class="title" x="32" y="44">One URL, a whole screen tree</text>
+  <text class="note" x="32" y="68">Patterns map URLs to steps; steps after a presentation run inside the new modal.</text>
+  <rect class="screen" x="40" y="96" width="200" height="124" rx="10"/>
+  <circle class="badge" cx="56" cy="116" r="11"/>
+  <text class="badge-text" x="56" y="120.2" text-anchor="middle">1</text>
+  <text class="label" x="76" y="121">URL</text>
+  <text class="code" x="56" y="152">navigatorui://</text>
+  <text class="code" x="56" y="174">editor/profile/42</text>
+  <rect class="api" x="280" y="96" width="200" height="124" rx="10"/>
+  <circle class="badge" cx="296" cy="116" r="11"/>
+  <text class="badge-text" x="296" y="120.2" text-anchor="middle">2</text>
+  <text class="label" x="316" y="121">Pattern</text>
+  <text class="code" x="296" y="152">editor/profile/:id</text>
+  <text class="note" x="296" y="174">match["id"] == "42"</text>
+  <rect class="api" x="520" y="96" width="200" height="124" rx="10"/>
+  <circle class="badge" cx="536" cy="116" r="11"/>
+  <text class="badge-text" x="536" y="120.2" text-anchor="middle">3</text>
+  <text class="label" x="556" y="121">Steps</text>
+  <text class="code" x="536" y="152">.present(.editor)</text>
+  <text class="code" x="536" y="174">.push(.profile(42))</text>
+  <rect class="shared" x="760" y="96" width="200" height="124" rx="10"/>
+  <circle class="badge" cx="776" cy="116" r="11"/>
+  <text class="badge-text" x="776" y="120.2" text-anchor="middle">4</text>
+  <text class="label" x="796" y="121">Strategy</text>
+  <text class="code" x="776" y="152">.replaceStack</text>
+  <text class="note" x="776" y="174">dismiss modals, pop to root</text>
+  <text class="note" x="776" y="196">(.append: on top of current)</text>
+  <path class="edge" d="M 240 158 L 280 158" marker-end="url(#arrow)"/>
+  <path class="edge" d="M 480 158 L 520 158" marker-end="url(#arrow)"/>
+  <path class="edge" d="M 720 158 L 760 158" marker-end="url(#arrow)"/>
+  <text class="label" x="40" y="286">Result</text>
+  <rect class="lane" x="130" y="252" width="200" height="76" rx="12"/>
+  <text class="note" x="146" y="272">root stack</text>
+  <rect class="screen" x="146" y="282" width="80" height="34" rx="8"/>
+  <text class="code" x="186.0" y="303.5" text-anchor="middle">Home</text>
+  <path class="edge" d="M 330 290 L 370 290" marker-end="url(#arrow)"/>
+  <text class="note" x="350" y="282" text-anchor="middle">sheet</text>
+  <rect class="uikit" x="370" y="252" width="330" height="76" rx="12"/>
+  <text class="note" x="386" y="272">sheet stack</text>
+  <rect class="screen" x="386" y="282" width="110" height="34" rx="8"/>
+  <text class="code" x="441.0" y="303.5" text-anchor="middle">Editor</text>
+  <text class="note" x="511" y="304" text-anchor="middle">›</text>
+  <rect class="screen" x="526" y="282" width="130" height="34" rx="8"/>
+  <text class="code" x="591.0" y="303.5" text-anchor="middle">Profile 42</text>
+  <text class="note" x="730" y="284">Cold start works too: calls are</text>
+  <text class="note" x="730" y="302">held until the UI appears.</text>
+</svg>

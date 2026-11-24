@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 380" width="100%" role="img" aria-label="Navigation calls are held until the root StackController appears, then run one at a time on a timeline; each operation finishes when UIKit has applied the change and its transition ended, and a 2 second watchdog abandons operations that never finish.">
+<title>Navigation calls are held until the root StackController appears, then run one at a time on a timeline; each operation finishes when UIKit has applied the change and its transition ended, and a 2 second watchdog abandons operations that never finish.</title>
+<defs>
+<linearGradient id="brand" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f05138"/><stop offset="50%" stop-color="#d946ef"/><stop offset="100%" stop-color="#a855f7"/></linearGradient>
+<marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#8b949e"/></marker>
+<style>
+.frame  { fill: #ffffff; stroke: #d0d7de; stroke-width: 1.5; }
+.lane   { fill: #f6f8fa; stroke: #d0d7de; stroke-width: 1.5; }
+.screen { fill: #ffffff; stroke: #d0d7de; stroke-width: 1.5; }
+.api    { fill: #fff1ee; stroke: #f05138; stroke-width: 1.5; }
+.uikit  { fill: #f5efff; stroke: #a855f7; stroke-width: 1.5; }
+.shared { fill: #fdf0fd; stroke: #d946ef; stroke-width: 1.5; stroke-dasharray: 6 4; }
+.edge   { stroke: #8b949e; stroke-width: 1.5; fill: none; }
+.dashed { stroke-dasharray: 5 4; }
+.title  { font: 600 18px -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: #1f2328; }
+.label  { font: 600 14px -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: #1f2328; }
+.note   { font: 400 12.5px -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: #57606a; }
+.code   { font: 500 13px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; fill: #1f2328; }
+.badge  { fill: url(#brand); }
+.badge-text { font: 700 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: #ffffff; }
+@media (prefers-color-scheme: dark) {
+  .frame  { fill: #0d1117; stroke: #30363d; }
+  .lane   { fill: #161b22; stroke: #30363d; }
+  .screen { fill: #0d1117; stroke: #30363d; }
+  .api    { fill: #2a1410; }
+  .uikit  { fill: #1f1530; }
+  .shared { fill: #261229; }
+  .title, .label, .code { fill: #e6edf3; }
+  .note   { fill: #8b949e; }
+}
+</style>
+</defs>
+  <rect class="frame" x="1" y="1" width="998" height="378" rx="16"/>
+  <text class="title" x="32" y="44">Every call waits its turn</text>
+  <text class="note" x="32" y="68">Calls return immediately; the queue runs them one at a time, each after the previous transition ends.</text>
+  <rect class="screen" x="40" y="96" width="300" height="150" rx="10"/>
+  <text class="code" x="60" y="130">navigator.push(.profile)</text>
+  <text class="code" x="60" y="160">navigator.push(.settings)</text>
+  <text class="code" x="60" y="190">navigator.present(.editor)</text>
+  <text class="note" x="60" y="212">same run-loop turn,</text>
+  <text class="note" x="60" y="230">even before the UI exists</text>
+  <rect class="shared" x="370" y="96" width="150" height="150" rx="10"/>
+  <text class="label" x="445" y="130" text-anchor="middle">Held</text>
+  <text class="note" x="445" y="156" text-anchor="middle">until the root</text>
+  <text class="note" x="445" y="174" text-anchor="middle">StackController</text>
+  <text class="note" x="445" y="192" text-anchor="middle">calls viewDidAppear</text>
+  <path class="edge" d="M 340 171 L 370 171" marker-end="url(#arrow)"/>
+  <path class="edge" d="M 520 171 L 550 120" marker-end="url(#arrow)"/>
+  <path class="edge" d="M 550 270 L 960 270" marker-end="url(#arrow)"/>
+  <text class="note" x="960" y="306" text-anchor="end">time</text>
+  <rect class="api" x="550" y="100" width="130" height="40" rx="8"/>
+  <text class="code" x="615.0" y="124.5" text-anchor="middle">push profile</text>
+  <rect class="api" x="690" y="150" width="130" height="40" rx="8"/>
+  <text class="code" x="755.0" y="174.5" text-anchor="middle">push settings</text>
+  <rect class="api" x="830" y="200" width="130" height="40" rx="8"/>
+  <text class="code" x="895.0" y="224.5" text-anchor="middle">present editor</text>
+  <path class="edge dashed" d="M 680 140 L 680 270"/>
+  <path class="edge dashed" d="M 820 190 L 820 270"/>
+  <path class="edge dashed" d="M 960 240 L 960 270"/>
+  <text class="note" x="680" y="290" text-anchor="middle">finish()</text>
+  <text class="note" x="820" y="290" text-anchor="middle">finish()</text>
+  <text class="note" x="960" y="290" text-anchor="end">finish()</text>
+  <circle class="badge" cx="52" cy="322" r="11"/>
+  <text class="badge-text" x="52" y="326.2" text-anchor="middle">1</text>
+  <text class="note" x="72" y="326">An operation finishes when UIKit has applied the change and its transition has ended.</text>
+  <circle class="badge" cx="52" cy="350" r="11"/>
+  <text class="badge-text" x="52" y="354.2" text-anchor="middle">2</text>
+  <text class="note" x="72" y="354">A 2 s watchdog abandons an operation that never finishes and reports .failure, so later calls still run.</text>
+</svg>

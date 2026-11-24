@@ -27,6 +27,8 @@ Flow: call (`push`, `present`, `open`, ...) → `Navigator` enqueues → `...Now
 - `Sources/NavigatorUI/DeepLink/`: `DeepLinkRouter`, `NavigationStep`, `DeepLinkMatch`.
 - `Tests/NavigatorUITests/`: Swift Testing suites and `Harness.swift`.
 - `Example/`: runnable app project (see below), UI tests, and the project generator.
+- `docs/`: `ARCHITECTURE.md` (internals, mermaid flows) and `ROADMAP.md` (risks and plans).
+- `assets/`: README SVGs (banner and diagrams). CSS is embedded in each SVG; light/dark follows `prefers-color-scheme`.
 
 ## Development Commands
 The package is iOS-only (UIKit), so plain `swift build` is not the right check.
@@ -56,7 +58,7 @@ swiftlint lint --quiet Sources Tests Example
 - **Weak references**: `Navigator.controller`, `parent` and `presented` are weak (the controllers own the view tree). Queue completions capture the queue `weak`: UIKit completions can fire after teardown.
 - **Errors**: no throwing APIs. A bad call logs and emits `.failure(...)` and leaves state unchanged.
 - **Access control**: public API only on `Navigator`, `NavigationRoot`, `RouteRegistry`, `Route`/`AnyRoute`, `Presentation`, `NavigationTransition`, `DeepLinkRouter` and friends, `NavigationEvent`, the `\.navigator` key and `.popGuard`. Everything else is internal. `routes` / `depth` are `public internal(set)` because the bookkeeping extension lives in another file.
-- **Documentation**: public API carries `///` docs. Update `README.md` when public behavior changes.
+- **Documentation**: public API carries `///` docs. Update `README.md` when public behavior changes, `docs/ARCHITECTURE.md` when internals change, and `CHANGELOG.md` under Unreleased.
 - **Style**: 4 spaces, 120 columns, swiftlint clean.
 
 ## Important Files

@@ -30,7 +30,7 @@ Ordered by how likely they are to bite a real app.
 ### Next (close the gaps above)
 1. **UI tests for the untested paths:** swipe-dismiss with `onDismiss`, `isDismissDisabled` with `onDismissAttempt`, cover transition styles, a screen reading a missing environment object (to turn risk 3 into a fact).
 2. **CI:** GitHub Actions running the package scheme and the Example app scheme (hosted tests + UI tests) on a simulator.
-3. **Release hygiene:** tag `0.1.0`, switch README install to a version, add a CHANGELOG.
+3. **Release hygiene:** tag `0.1.0`, move the CHANGELOG's Unreleased section under it, and switch the README install to `from: "0.1.0"`.
 4. **Guard semantics:** decide and document whether a guard may run more than once per user attempt; add a test.
 
 ### Then (features)
